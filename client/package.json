@@ -1,0 +1,28 @@
+{
+  "name": "nyt-google-book-search-app",
+  "version": "0.1.0",
+  "description": "Client side of the nyt googe book search app",
+  "private": true,
+  "proxy": "http://localhost:3001/",
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-scripts": "^2.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/eghove/nyt-google-books-search.git"
+  },
+  "author": "Eric Hove",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eghove/nyt-google-books-search/issues"
+  },
+  "homepage": "https://github.com/eghove/nyt-google-books-search#readme"
+}
