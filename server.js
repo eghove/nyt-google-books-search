@@ -4,6 +4,12 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 
+//require the dotenv module
+require("dotenv").config();
+
+//loads the exported pieces from keys.js, which includes the Google Books API key
+const keys = require("./keys.js");
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
