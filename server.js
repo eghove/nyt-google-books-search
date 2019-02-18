@@ -3,6 +3,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
+const routes = require("./routes");
 
 //require the dotenv module
 require("dotenv").config();
@@ -18,7 +19,8 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Define API routes here
+// Define routes here
+app.use(routes);
 
 
 // Connect to the Mongo DB
@@ -32,4 +34,5 @@ app.get("*", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
+  // console.log(keys.googleAPI.secret);
 });
