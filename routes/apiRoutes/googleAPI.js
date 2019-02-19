@@ -1,5 +1,6 @@
 const axios = require("axios");
 const router = require("express").Router();
+
 // const keys = require("../../keys");
 
 
@@ -9,8 +10,8 @@ const router = require("express").Router();
 // matches api/search
 router.get("/:query", (req,res) => {
   axios
-    .get("https://www.googleapis.com/books/v1/volumes?q=", {params: req.params.query} )
-    .then(({ data: { results } }) => res.json(results))
+    .get("https://www.googleapis.com/books/v1/volumes?q=" + req.params.query)
+    .then((results) => res.json(results.data))
     .catch(err => res.status(422).json(err));
 });
 
