@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Define routes here
 // app.use(routes);
-app.use("api/search", googleRoute);
+app.use("/api/search", googleRoute);
 
 
 // Connect to the Mongo DB
