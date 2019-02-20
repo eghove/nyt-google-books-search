@@ -5,11 +5,19 @@ const db = require("../models");
 
 module.exports = {
   
-  // returns everything in the database
+  // method that returns all books in the database
   findAll: function(req, res) {
     db.Book
       .find(req.query)
       .sort({ date: -1 })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
+  // method that adds a book to the database
+  create: function(req, res) {
+    db.Book
+      .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
