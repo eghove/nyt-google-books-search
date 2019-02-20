@@ -3,8 +3,11 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
+// pull in the Google API route
 const googleRoute = require("./routes/apiRoutes/googleAPI");
-// const routes = require("./routes");
+// pull in the database route
+const booksRoute = require("./routes/apiRoutes/mongoAPI");
+
 
 //require the dotenv module
 require("dotenv").config();
@@ -21,8 +24,10 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define routes here
-// app.use(routes);
+// the Google Books API route
 app.use("/api/search", googleRoute);
+// the MongoDB googlebooks database route
+app.use("/api/books", booksRoute);
 
 
 // Connect to the Mongo DB
