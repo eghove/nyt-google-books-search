@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "proxy": "http://localhost:3001/",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
-    "proxy": "http://localhost:3001/",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5"
   },
   "scripts": {
