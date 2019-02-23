@@ -2,10 +2,11 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
-    "proxy": "http://localhost:3001/",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5"
   },
   "scripts": {
