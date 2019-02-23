@@ -6,13 +6,31 @@ import { Container, Row, Col } from "../components/Grid";
 // import the jumbotron
 import Jumbotron from "../components/Jumbotron";
 // import the search bar
-import SearchBar from "../components/SearchBar"
+import SearchBar from "../components/SearchBar";
+// import the button component
+import Button from "../components/Button";
 
 class Search extends Component { 
   
   state = {
     bookResults: [],
     bookSearch: ""
+  };
+
+  // handler functions
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleSearchSubmit = event => {
+    // prevent the default behavior
+    event.preventDefault();
+    API.searchBooks(this.state.bookSearch)
+      .then(results => this.setState({ bookResults: results.data.items} ))
+      .catch(error => console.log(error));
   };
 
   render() {
@@ -29,8 +47,20 @@ class Search extends Component {
           <Col size = "md-10">
             <SearchBar
               name = "bookSearch"
-              placeholder = "Search the Google API for a Book!"
+              placeholder = "Search the Google Books API for a Book!"
+              onChange = {this.handleInputChange}
             />
+          </Col>
+        </Row>
+        <Row>
+          <Col size = "md-2">
+            <Button
+              onClick = {this.handleSearchSubmit}
+              type = "success"
+              className = "input-lg"
+              >
+              Search
+            </Button>
           </Col>
         </Row>
       </Container>
