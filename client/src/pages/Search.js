@@ -9,6 +9,8 @@ import Jumbotron from "../components/Jumbotron";
 import SearchBar from "../components/SearchBar";
 // import the button component
 import Button from "../components/Button";
+// import the Results List related components
+import { ResultsList, ResultsListItem } from "../components/ResultsList";
 
 class Search extends Component { 
   
@@ -61,6 +63,27 @@ class Search extends Component {
               >
               Search
             </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col size = "xs-12">
+            {!this.state.bookResults.length ? (
+              <h1 className = "text-center">No Books Found! Sorry :( </h1>
+            ) : (
+              <ResultsList>
+                {this.state.bookResults.map(books => {
+                  return (
+                    <ResultsListItem 
+                      key = {books.id}
+                      title = {books.volumeInfo.title}
+                      authors = {books.volumeInfo.authors}
+                      description = {books.volumeInfo.description}
+                      link = {books.volumeInfo.infoLink}
+                    />
+                  )
+                })}
+              </ResultsList>
+            )}
           </Col>
         </Row>
       </Container>
