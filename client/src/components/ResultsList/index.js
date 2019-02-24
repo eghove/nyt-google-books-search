@@ -20,7 +20,7 @@ export function ResultsListItem({
             <h2>{title}</h2>
             <h3>Author(s): {authors}</h3>
             <p>Description: {description}</p>
-            <a target = "_blank" href ={link}>Go to Book!</a>
+            <a rel="noopener noreferrer" target = "_blank" href ={link}>Go to Book!</a>
           </Col>
         </Row>
       </Container>
